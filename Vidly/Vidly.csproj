@@ -44,6 +44,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -168,16 +196,69 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001200912281_IntialModel.cs" />
+    <Compile Include="Migrations\202001200912281_IntialModel.Designer.cs">
+      <DependentUpon>202001200912281_IntialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001200917516_addCustomerTable.cs" />
+    <Compile Include="Migrations\202001200917516_addCustomerTable.Designer.cs">
+      <DependentUpon>202001200917516_addCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001200923058_MembershipTypeTable.cs" />
+    <Compile Include="Migrations\202001200923058_MembershipTypeTable.Designer.cs">
+      <DependentUpon>202001200923058_MembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001200946149_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202001200946149_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202001200946149_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001201056011_AddAnnotationstoCustomer.cs" />
+    <Compile Include="Migrations\202001201056011_AddAnnotationstoCustomer.Designer.cs">
+      <DependentUpon>202001201056011_AddAnnotationstoCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202015084_addNameToMemberShipType.cs" />
+    <Compile Include="Migrations\202001202015084_addNameToMemberShipType.Designer.cs">
+      <DependentUpon>202001202015084_addNameToMemberShipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202017030_updateMembershipTableData.cs" />
+    <Compile Include="Migrations\202001202017030_updateMembershipTableData.Designer.cs">
+      <DependentUpon>202001202017030_updateMembershipTableData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202024017_addBirthDateColumnToCustomer.cs" />
+    <Compile Include="Migrations\202001202024017_addBirthDateColumnToCustomer.Designer.cs">
+      <DependentUpon>202001202024017_addBirthDateColumnToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202050018_AddMovieTable.cs" />
+    <Compile Include="Migrations\202001202050018_AddMovieTable.Designer.cs">
+      <DependentUpon>202001202050018_AddMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202058534_addGenreTable.cs" />
+    <Compile Include="Migrations\202001202058534_addGenreTable.Designer.cs">
+      <DependentUpon>202001202058534_addGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202101332_PopulateGenreTable.cs" />
+    <Compile Include="Migrations\202001202101332_PopulateGenreTable.Designer.cs">
+      <DependentUpon>202001202101332_PopulateGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -186,8 +267,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -234,6 +320,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +338,41 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001200912281_IntialModel.resx">
+      <DependentUpon>202001200912281_IntialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001200917516_addCustomerTable.resx">
+      <DependentUpon>202001200917516_addCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001200923058_MembershipTypeTable.resx">
+      <DependentUpon>202001200923058_MembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001200946149_PopulateMembershipTypes.resx">
+      <DependentUpon>202001200946149_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001201056011_AddAnnotationstoCustomer.resx">
+      <DependentUpon>202001201056011_AddAnnotationstoCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202015084_addNameToMemberShipType.resx">
+      <DependentUpon>202001202015084_addNameToMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202017030_updateMembershipTableData.resx">
+      <DependentUpon>202001202017030_updateMembershipTableData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202024017_addBirthDateColumnToCustomer.resx">
+      <DependentUpon>202001202024017_addBirthDateColumnToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202050018_AddMovieTable.resx">
+      <DependentUpon>202001202050018_AddMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202058534_addGenreTable.resx">
+      <DependentUpon>202001202058534_addGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202101332_PopulateGenreTable.resx">
+      <DependentUpon>202001202101332_PopulateGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

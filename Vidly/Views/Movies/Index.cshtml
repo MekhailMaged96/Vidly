@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreId)
+        </th>
+    </tr>
+
+@foreach (var movie in Model) {
+    <tr>
+        <td>
+           @Html.ActionLink(movie.Name,"Details",new { id = movie.Id})
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => movie.Genre.Name)
+        </td>
+    </tr>
+}
+
+</table>

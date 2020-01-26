@@ -1,0 +1,17 @@
+﻿@model Vidly.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+  <ul>
+      <li>@Html.DisplayNameFor(m => m.Name) :  @Model.Name</li>
+      <li>@Html.DisplayNameFor(m => m.ReleaseDate) :  @String.Format("{0:dddd,  MMMM d yyyy}", Model.ReleaseDate)</li>
+      <li> @Html.DisplayNameFor(m => m.DateAdded) : @String.Format("{0:dddd, MMMM d yyyy}",Model.DateAdded)</li>
+      <li> @Html.DisplayNameFor(m => m.NumberInStock) : @Model.NumberInStock</li>
+  </ul>
+</div>
