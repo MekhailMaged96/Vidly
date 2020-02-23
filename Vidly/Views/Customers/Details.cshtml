@@ -13,3 +13,7 @@
             <li>Birthdate: @String.Format("{0:MM/dd/yyyy}", Model.BirthDate)</li>
          }
 </ul>
+
+<div>
+    @Html.ActionLink("Edit","Edit",new { id =Model.Id },new {@class="btn btn-primary" })
+</div>

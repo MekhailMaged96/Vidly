@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+.dataTables_wrapper{
+    margin:10px;
+
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Vidly.Helpers;
 
 namespace Vidly.Models
 {
@@ -10,10 +11,12 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please Enter Customer`s Name")]
         [StringLength(255)]
         public string Name { get; set; }
 
+        [DisplayFormatAttribute(ApplyFormatInEditMode = true, DataFormatString = "{0:MM / dd / yyyy}")]
+        [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
 
         public bool  IsSubscribedToNewsLetter { get; set; }
@@ -22,5 +25,8 @@ namespace Vidly.Models
 
         [Display(Name ="Membership Type")]
         public byte MembershipTypeId { get; set; }
+
+
+ 
     }
 }

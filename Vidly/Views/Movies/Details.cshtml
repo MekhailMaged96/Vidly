@@ -13,5 +13,9 @@
       <li>@Html.DisplayNameFor(m => m.ReleaseDate) :  @String.Format("{0:dddd,  MMMM d yyyy}", Model.ReleaseDate)</li>
       <li> @Html.DisplayNameFor(m => m.DateAdded) : @String.Format("{0:dddd, MMMM d yyyy}",Model.DateAdded)</li>
       <li> @Html.DisplayNameFor(m => m.NumberInStock) : @Model.NumberInStock</li>
+      <li>@Html.DisplayNameFor(m =>m.GenreId) : @Model.Genre.Name</li>
   </ul>
+</div>
+<div>
+    @Html.ActionLink("Edit","Edit", new { id = Model.Id }, new { @class="btn btn-success"})
 </div>
